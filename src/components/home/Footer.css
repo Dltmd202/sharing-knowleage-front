@@ -24,7 +24,7 @@ footer{
 }
 
 .grass{
-    background-image: url(../img/grass2.png) ;
+    background-image: url(../../img/grass2.png) ;
     background-size:contain;
     background-color: #347F80;
     background-position: right;
