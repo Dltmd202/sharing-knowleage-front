@@ -1,11 +1,20 @@
 import React from "react";
 import axios from "axios";
+import Navigation from "../components/home/Navigation.jsx"
 import "./Home.css";
 
 class Home extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            isMain: true,
+        }
+    }
     render() {
         return (
-            <div>
+          <div>
+              <Navigation/>
+            <div className="main-page">
             <section className="KnowSharing" id="home">
                 <div className="textBx">
                     <h2>likelion<br/><span>OG-LAB</span></h2>
@@ -49,6 +58,7 @@ class Home extends React.Component {
                 </div>
             </section>
             </div>
+          </div>
         )
     }
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from "axios";
 import '../home/Navigation.css';
+import './QuestionList.css'
 import Question from "./Question";
 
 class QuestionList extends React.Component {
@@ -31,21 +32,27 @@ class QuestionList extends React.Component {
     } = this.state;
     console.log(typeof questions);
     return (
-      <div>
-        {questions.map(question => (
-          <Question
-            ques_desc={question.ques_desc}
-            ques_point={question.ques_point}
-            ques_title={question.ques_title}
-            modify_date={question.modify_date}
-            vote_count={question.vote_count}
-            head_img={question.head_img}
-            user_id={question.user_id}
-            category_id={question.category_id}
-            post_date={question.post_date}
-            who_chosen={question.who_chosen}
-          />
-        ))}
+      <div className="Question__container">
+        <h1>Q&A</h1>
+        <hr/>
+        <div className="QuestionList">
+          {questions.map(question => (
+            <Question
+              key={question.id}
+              id={question.id}
+              ques_desc={question.ques_desc}
+              ques_point={question.ques_point}
+              ques_title={question.ques_title}
+              modify_date={question.modify_date}
+              vote_count={question.vote_count}
+              head_img={question.head_img}
+              user_id={question.user_id}
+              category_id={question.category_id}
+              post_date={question.post_date}
+              who_chosen={question.who_chosen}
+            />
+          ))}
+        </div>
       </div>
     );
   }

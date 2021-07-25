@@ -11,6 +11,11 @@ header
     align-items: center;
     transition: 0.5s;
 }
+
+.header__not-main{
+    background: linear-gradient(#B5B0E2 45% ,#fafbfc);
+}
+
 header.sticky
 {
     background: #fff;

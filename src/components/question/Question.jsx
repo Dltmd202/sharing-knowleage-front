@@ -1,27 +1,59 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import './Question.css'
 
-function Question({ ques_title, user_id, category_id, post_date,
+function Question({ id, ques_title, user_id, category_id, post_date,
      modify_date, ques_desc, ques_point, head_img, who_chosen, vote_count}) {
   return (
-    <div className="question">
-      {ques_title}
+    <div className="col question">
+      <Link to={{
+        pathname: `/question/${id}`,
+        state: {
+          id, ques_title, user_id,
+          category_id, post_date,
+          modify_date, ques_desc,
+          ques_point, head_img,
+          who_chosen, vote_count
+        }
+      }
+      }>
+        <div className="px-3">
+          <div>
+            <h5 className="fw-bolder ">{ques_title}</h5>
+          </div>
+          <hr/>
+          <img className="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
+               width="30px" height="110px" alt="..."/>
+          <div className="card-body">
+            <div className="text-right">
+              <div>
+                <p className="card-text">{ ques_desc }</p>
+              </div>
+              <br/>
+                <p className="card-text">
+                  { ques_point } Point <i className="far fa-square"></i>
+                </p>
+            </div>
+          </div>
+        </div>
+      </Link>
     </div>
   );
 }
 
 Question.propTypes = {
-  ques_title: PropTypes.string.isRequired,
-  user_id: PropTypes.string.isRequired,
-  category_id: PropTypes.string.isRequired,
-  post_date: PropTypes.number.isRequired,
-  modify_date: PropTypes.string.isRequired,
-  ques_desc: PropTypes.string.isRequired,
-  ques_point: PropTypes.number.isRequired,
-  head_img: PropTypes.string.isRequired,
-  who_chosen: PropTypes.string.isRequired,
-  vote_count: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  ques_title: PropTypes.string,
+  user_id: PropTypes.number,
+  category_id: PropTypes.string,
+  post_date: PropTypes.string,
+  modify_date: PropTypes.string,
+  ques_desc: PropTypes.string,
+  ques_point: PropTypes.number,
+  head_img: PropTypes.string,
+  who_chosen: PropTypes.number,
+  vote_count: PropTypes.number,
 };
 
 export default Question;
